@@ -15,6 +15,17 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @IBOutlet weak var calcDisplay: UILabel!
+    
+    @IBAction func numberTapped(_ sender: UIButton) {
+    }
+    @IBAction func operateTapped(_ sender: UIButton) {
+    }
+    @IBAction func eqaulTapped() {
+    }
+   
+    @IBAction func clearTapped() {
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

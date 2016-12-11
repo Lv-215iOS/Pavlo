@@ -89,7 +89,6 @@ class ViewController: UIViewController {
     }
     
     
-   
     @IBAction func clearTapped() {
         operandStack.removeAll()
         userIsInTheMiddleOfTypingANumber = false

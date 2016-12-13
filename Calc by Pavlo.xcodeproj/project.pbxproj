@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B027E7A1DFE9D070097AD78 /* InputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B027E791DFE9D070097AD78 /* InputController.swift */; };
+		8B027E7C1DFE9EAC0097AD78 /* OutputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B027E7B1DFE9EAC0097AD78 /* OutputController.swift */; };
 		8BED0BCA1DFDF6E100545CCF /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED0BC91DFDF6E100545CCF /* CalculatorBrain.swift */; };
 		8BEFC7791DF806E1007EA978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEFC7781DF806E1007EA978 /* AppDelegate.swift */; };
 		8BEFC77B1DF806E1007EA978 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEFC77A1DF806E1007EA978 /* ViewController.swift */; };
@@ -16,7 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8BED0BC91DFDF6E100545CCF /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
+		8B027E791DFE9D070097AD78 /* InputController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputController.swift; sourceTree = "<group>"; };
+		8B027E7B1DFE9EAC0097AD78 /* OutputController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputController.swift; sourceTree = "<group>"; };
+		8BED0BC91DFDF6E100545CCF /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; usesTabs = 0; };
 		8BEFC7751DF806E1007EA978 /* Calc by Pavlo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calc by Pavlo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEFC7781DF806E1007EA978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BEFC77A1DF806E1007EA978 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -57,8 +61,10 @@
 			isa = PBXGroup;
 			children = (
 				8BEFC7781DF806E1007EA978 /* AppDelegate.swift */,
-				8BEFC77A1DF806E1007EA978 /* ViewController.swift */,
 				8BED0BC91DFDF6E100545CCF /* CalculatorBrain.swift */,
+				8BEFC77A1DF806E1007EA978 /* ViewController.swift */,
+				8B027E791DFE9D070097AD78 /* InputController.swift */,
+				8B027E7B1DFE9EAC0097AD78 /* OutputController.swift */,
 				8BEFC77C1DF806E1007EA978 /* Main.storyboard */,
 				8BEFC77F1DF806E1007EA978 /* Assets.xcassets */,
 				8BEFC7811DF806E1007EA978 /* LaunchScreen.storyboard */,
@@ -94,7 +100,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = pasik;
 				TargetAttributes = {
 					8BEFC7741DF806E1007EA978 = {
@@ -140,6 +146,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B027E7C1DFE9EAC0097AD78 /* OutputController.swift in Sources */,
+				8B027E7A1DFE9D070097AD78 /* InputController.swift in Sources */,
 				8BED0BCA1DFDF6E100545CCF /* CalculatorBrain.swift in Sources */,
 				8BEFC77B1DF806E1007EA978 /* ViewController.swift in Sources */,
 				8BEFC7791DF806E1007EA978 /* AppDelegate.swift in Sources */,
@@ -186,6 +194,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -236,6 +245,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

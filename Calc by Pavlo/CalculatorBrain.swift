@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum BinaryOperation: String   {
+enum BinaryOperation: String  {
     case Plus = "+"
     case Minus = "-"
     case Mul = "*"
@@ -20,11 +20,13 @@ enum UtilityOperation: String {
     case C = "C"
     case Dot = "."
 }
-enum UnaryOperation: String{
+
+enum UnaryOperation: String {
     case sqrt = "√"
     case sin = "sin"
     case cos = "cos"
     case changeSign = "+/-"
+    case percentage = "%"
 }
 
 protocol CalculatorBrainInterface {
@@ -75,7 +77,9 @@ class CalculatorBrain: NSObject, CalculatorBrainInterface {
         case .cos:
             value = (cos(operandOne ?? 0.0 ))
         case .changeSign:
-            value = 0 - (operandOne ?? 0.0)
+            value =  -(operandOne ?? 0.0 )
+        case .percentage:
+            value = (operandOne ?? 0.0/100 )
         default:
             break
         }

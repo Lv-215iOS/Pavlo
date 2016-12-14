@@ -12,7 +12,7 @@ class ViewController: UIViewController  {
     
     var outputController: OutputController? = nil
     var inputController: InputController? = nil
-    @IBOutlet  var inputDataDisplay: UILabel!
+   
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "OutputControllerEmbedSegue" {
@@ -24,13 +24,11 @@ class ViewController: UIViewController  {
         }
     }
 
-//    func changeLabel(text: String) {
-//         inputDataDisplay.text = text
-//    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //calcBrain.result
+        
     }
 //    var calcBrain = CalculatorBrain()
 //    

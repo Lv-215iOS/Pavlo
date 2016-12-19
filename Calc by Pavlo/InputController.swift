@@ -9,33 +9,20 @@
 import UIKit
 
 
-//protocol InputToVC {
-//    func changeLabel(text: String)
-//}
+protocol InputInterface {
+    var buttonDidPress: ((_ operation: String)->())? {get set}
+}
 
-class InputController: UIViewController {
+class InputController: UIViewController, InputInterface {
         
-
-    var mainVC: ViewController? = nil
-    //var inputToVC: InputToVC? = nil
-    //var userIsInTheMiddleOfTypingANumber = false
+        var buttonDidPress: ((String) -> ())? = nil
+        var inputToVC: InputInterface? = nil
+    
    
-    
-    @IBAction func numberTapped(_ sender: UIButton?) {
-        mainVC?.numberTapped(operation: (sender?.currentTitle)!)
+    @IBAction func buttonDidPress(_ sender: UIButton?) {
+            buttonDidPress?((sender?.currentTitle)!)
     }
 
-//        inputToVC?.changeLabel(text: "test")
-        
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if segue.identifier == "InputControllerEmbedSegue"{
-            mainVC = segue.destination as? ViewController
-        }
-        
-    }
-    
-        
-
 }
 

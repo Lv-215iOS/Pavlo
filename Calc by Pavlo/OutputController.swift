@@ -8,19 +8,32 @@
 
 import UIKit
 protocol OutputData {
-    func output ()
+    func outputData (data: String)
 }
 class OutputController : UIViewController {
-   
-    @IBOutlet var displayData: UILabel?
+    
+    @IBOutlet var displayData: UILabel!
+    var zero = "0"
+    var userIsInTheMiddleOfTypingANumber = false
     
     var mainVC: ViewController? = nil
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if segue.identifier == "OutputControllerEmbedSegue"{
-            mainVC = segue.destination as? ViewController
+    func outputData(data: String)  {
+        displayData?.text = data
+    }
+    func appendSymbol(symbol: String) {
+        if userIsInTheMiddleOfTypingANumber {
+            displayData?.text = ""
+            displayData?.text = symbol
+            
+        } else   {
+             displayData?.text = (displayData?.text!)! + symbol
+            
         }
+       userIsInTheMiddleOfTypingANumber = true
         
     }
-    
+    func  clearDispaly () {
+        displayData?.text = ""
+    }
 }

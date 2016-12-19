@@ -58,7 +58,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWB-Mc-yUA">
                                 <rect key="frame" x="8" y="39" width="359" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -71,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Qy-Kd-miH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="842" y="-83"/>
+            <point key="canvasLocation" x="902" y="-126"/>
         </scene>
         <!--Input Controller-->
         <scene sceneID="SSf-vz-lhD">
@@ -90,35 +91,47 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="1"/>
                                 <connections>
-                                    <action selector="numberTapped:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="8yd-QF-gs7"/>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="IHu-Ar-0yF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TGa-mX-bUh">
                                 <rect key="frame" x="16" y="371" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="C"/>
+                                <connections>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="NQk-pq-O7x"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rkp-jC-mMG">
                                 <rect key="frame" x="94" y="370" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="0"/>
+                                <connections>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="Qu7-jC-WLq"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilg-34-mdl">
                                 <rect key="frame" x="172" y="370" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="."/>
+                                <connections>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="OEE-LA-QZw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nA-yk-lIc">
                                 <rect key="frame" x="250" y="370" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="÷"/>
+                                <connections>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="wQO-ki-T92"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ijt-Qn-tQa">
                                 <rect key="frame" x="94" y="292" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="2"/>
                                 <connections>
-                                    <action selector="numberTapped:" destination="Aki-L8-vB9" eventType="touchUpInside" id="1M9-BU-t4f"/>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="0QP-JE-sF3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bep-WA-Fw2">
@@ -126,20 +139,23 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="3"/>
                                 <connections>
-                                    <action selector="numberTapped:" destination="Aki-L8-vB9" eventType="touchUpInside" id="lei-at-tRQ"/>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="mGn-O3-w0C"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cvp-7h-XyK">
                                 <rect key="frame" x="250" y="292" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="×"/>
+                                <connections>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="nHy-j5-Hbd"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEr-Th-QMu">
                                 <rect key="frame" x="16" y="214" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="4"/>
                                 <connections>
-                                    <action selector="numberTapped:" destination="Aki-L8-vB9" eventType="touchUpInside" id="PV5-4r-Xyn"/>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="g4w-00-4ko"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kco-rT-5eM">
@@ -147,7 +163,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="5"/>
                                 <connections>
-                                    <action selector="numberTapped:" destination="Aki-L8-vB9" eventType="touchUpInside" id="Ism-I5-mJP"/>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="3da-GN-KyU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vnc-2c-d5X">
@@ -155,25 +171,31 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="6"/>
                                 <connections>
-                                    <action selector="numberTapped:" destination="Aki-L8-vB9" eventType="touchUpInside" id="H3k-Dh-ZFa"/>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="yAl-d1-GEy"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQe-UT-rap">
                                 <rect key="frame" x="250" y="214" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="-"/>
+                                <connections>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="3ra-8q-eC3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKr-Em-EqT">
                                 <rect key="frame" x="328" y="58" width="47" height="383"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="="/>
+                                <connections>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="hp5-QP-EAo"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qs-a3-63A">
                                 <rect key="frame" x="16" y="137" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="7"/>
                                 <connections>
-                                    <action selector="numberTapped:" destination="Aki-L8-vB9" eventType="touchUpInside" id="5o9-Ex-8K6"/>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="dgQ-3T-FDl"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCi-Hf-jXr">
@@ -181,7 +203,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="8"/>
                                 <connections>
-                                    <action selector="numberTapped:" destination="Aki-L8-vB9" eventType="touchUpInside" id="fez-EU-zSR"/>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="FPu-Xo-fLQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFO-7W-Wmi">
@@ -189,33 +211,56 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="9"/>
                                 <connections>
-                                    <action selector="numberTapped:" destination="Aki-L8-vB9" eventType="touchUpInside" id="mGP-1c-c8P"/>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="nVa-TF-nwk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bcr-Z4-CLa">
                                 <rect key="frame" x="250" y="136" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+"/>
+                                <connections>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="zXT-gm-T1D"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcQ-1f-9NG">
                                 <rect key="frame" x="94" y="58" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="cos"/>
+                                <connections>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="m9w-zd-Gyl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SbE-bF-XrX">
                                 <rect key="frame" x="172" y="58" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="sin"/>
+                                <connections>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="IHQ-pe-7oU"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXa-AH-Clb">
                                 <rect key="frame" x="250" y="58" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="+/-"/>
+                                <connections>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="pgb-ZZ-riC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jfa-iG-2mI">
                                 <rect key="frame" x="16" y="58" width="70" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="√"/>
+                                <connections>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="2HK-9b-zn9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zct-Xc-Kip">
+                                <rect key="frame" x="94" y="441" width="70" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="%"/>
+                                <connections>
+                                    <action selector="buttonDidPress:" destination="4QL-IZ-L4B" eventType="touchUpInside" id="2ij-Iy-gmP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -223,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aki-L8-vB9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="840.79999999999995" y="363.86806596701655"/>
+            <point key="canvasLocation" x="902" y="242"/>
         </scene>
     </scenes>
 </document>

@@ -11,8 +11,8 @@ import Foundation
 enum BinaryOperation: String  {
     case Plus = "+"
     case Minus = "-"
-    case Mul = "*"
-    case Div = "/"
+    case Mul = "×"
+    case Div = "÷"
 }
 
 enum UtilityOperation: String {
@@ -38,75 +38,80 @@ protocol CalculatorBrainInterface {
 }
 
 class CalculatorBrain: NSObject, CalculatorBrainInterface {
-    var operandOne: Double?
-    var operandTwo: Double?
-    var value: Double?
+    internal var result: ((Double?, Error?) -> ())?
+
+    var stack =  [Double]()
+    private var inputData = ""
+    private var operationValue = ""
+    private var outputData = [String]()
     
     func digit(value: Double) {
-        if operandOne == nil {
-            operandOne = value
-        } else if operandTwo == nil {
-            operandTwo = value
-        }
+        inputData += String(Int(value))
     }
-    
     func binary(operation: BinaryOperation) {
-        switch operation {
-        case .Plus:
-            value = (operandOne ?? 0.0) + (operandTwo ?? 0.0)
-        case .Minus:
-            value = (operandOne ?? 0.0) - (operandTwo ?? 0.0)
-        case .Mul:
-            value = (operandOne ?? 0.0) *  (operandTwo ?? 0.0)
-        case .Div:
-            value = (operandOne ?? 0.0) /  (operandTwo ?? 0.0)
-            
-        default: break
-            
+        operationValue = operation.rawValue
+        if inputData != ""{
+        stack.append(Double(inputData)!)
+        inputData = ""
         }
-        
-        
     }
-    
     func unary(operation: UnaryOperation) {
-        switch operation {
-        case .sqrt:
-            value = (sqrt (operandOne ?? 0.0 ))
-        case .sin:
-            value = (sin (operandOne ?? 0.0 ))
-        case .cos:
-            value = (cos(operandOne ?? 0.0 ))
-        case .changeSign:
-            value =  -(operandOne ?? 0.0 )
-        case .percentage:
-            value = (operandOne ?? 0.0/100 )
-        default:
-            break
-        }
-        
-    }
+        operationValue = operation.rawValue
+        if inputData != "" {
+            stack.append(Double(inputData)!)
+            inputData = ""
+        }    }
     
     func utility(operation: UtilityOperation) {
-        switch operation {
-        case .Equal:
-            result?(value, nil)
-        default: break
+        if operation == .Equal {
+            if inputData == "" {
+            let res = doMath()
+            result?(res, nil)
+            print("Result: \(res)")
+            } else {
+                stack.append(Double(inputData)!)
+                inputData = ""
+                let res = doMath()
+                result?(res, nil)
+    
+                print("Result: \(res)")
+            }
+        } else if operation == .C {
+            inputData = ""
+            stack.removeAll()
+        }  else {
+            inputData += operation.rawValue
         }
     }
     
-    var result: ((Double?, Error?)->())? = nil
+    func doMath ()->Double {
+        
+            switch operationValue {
+            case "+":
+               stack.append(stack.removeLast() + stack.removeLast())
+            case "-":
+                stack.append(stack.remove(at: 0) - stack.removeLast())
+            case "×":
+                stack.append(stack.removeLast() * stack.removeLast())
+            case "÷":
+                stack.append(stack.remove(at: 0) - stack.removeLast())
+            case "√":
+                stack.append(sqrt(stack.removeLast()))
+            case "sin":
+                stack.append(sin(stack.removeLast()))
+            case "cos":
+                stack.append(cos(stack.removeLast()))
+            case "+/-":
+                stack.append(0 - stack.removeLast())
+            case "%":
+                stack.append(stack.removeLast()/100)
+            default:stack.append(stack[0])
+            
+        }
+        return stack[stack.count-1]
+        
+    }
+    
+    
+    
 }
-
-var calc = CalculatorBrain()
-
-//calc.result = { (value, error)->() in
-//    print("Result: \(value)")
-//}
-//
-//calc.digit(value: 6)
-//calc.digit(value:7)
-//calc.binary(operation: .Minus)
-//calc.utility(operation: .Equal)
-
-
-

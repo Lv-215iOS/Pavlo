@@ -67,14 +67,13 @@ class CalculatorBrain: NSObject, CalculatorBrainInterface {
             if inputData == "" {
             let res = doMath()
             result?(res, nil)
-            print("Result: \(res)")
+            //print("Result: \(res)")
             } else {
                 stack.append(Double(inputData)!)
                 inputData = ""
                 let res = doMath()
                 result?(res, nil)
-    
-                print("Result: \(res)")
+               // print("Result: \(res)")
             }
         } else if operation == .C {
             inputData = ""

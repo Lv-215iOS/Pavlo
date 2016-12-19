@@ -69,7 +69,7 @@ class ViewController: UIViewController  {
         calcBrain.result = { (value, error)->() in
             if (value != nil) {
                 self.outputController?.outputData(data: "\(value!)")
-                print("\(value)")
+                
     }
         }
     }

@@ -1,10 +1,3 @@
-//
-//  CalculatorBrain.swift
-//  Calc by Pavlo
-//
-//  Created by pasik_01 on 11.12.16.
-//  Copyright © 2016 pasik. All rights reserved.
-//
 
 import Foundation
 
@@ -25,8 +18,11 @@ enum UnaryOperation: String {
     case sqrt = "√"
     case sin = "sin"
     case cos = "cos"
+    case tg  = "tg"
+    case ctg = "ctg"
     case changeSign = "+/-"
     case percentage = "%"
+    case power = "x^y"
 }
 
 protocol CalculatorBrainInterface {
@@ -67,13 +63,11 @@ class CalculatorBrain: NSObject, CalculatorBrainInterface {
             if inputData == "" {
             let res = doMath()
             result?(res, nil)
-            //print("Result: \(res)")
             } else {
                 stack.append(Double(inputData)!)
                 inputData = ""
                 let res = doMath()
                 result?(res, nil)
-               // print("Result: \(res)")
             }
         } else if operation == .C {
             inputData = ""
@@ -104,13 +98,17 @@ class CalculatorBrain: NSObject, CalculatorBrainInterface {
                 stack.append(0 - stack.removeLast())
             case "%":
                 stack.append(stack.removeLast()/100)
+            case "tg":
+                stack.append(tan(stack.removeLast()))
+            case "ctg":
+                stack.append(tanh(stack.removeLast()))
+            case "x^y":
+                stack.append(pow(stack.removeLast(), stack.removeLast()))
             default:stack.append(stack[0])
             
         }
         return stack[stack.count-1]
         
     }
-    
-    
     
 }

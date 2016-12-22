@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  Calc by Pavlo
-//
-//  Created by pasik_01 on 07.12.16.
-//  Copyright © 2016 pasik. All rights reserved.
-//
 
 import UIKit
 
@@ -31,28 +24,39 @@ class ViewController: UIViewController  {
         switch operation {
         case "+":
             calcBrain.binary(operation: .Plus)
+            outputController?.appendSymbol(symbol: operation)
         case "-":
             calcBrain.binary(operation: .Minus)
+            outputController?.appendSymbol(symbol: operation)
         case "×":
             calcBrain.binary(operation: .Mul)
+            outputController?.appendSymbol(symbol: operation)
         case "/":
             calcBrain.binary(operation: .Div)
+            outputController?.appendSymbol(symbol: operation)
         case "cos":
             calcBrain.unary(operation: .cos)
         case "sin":
             calcBrain.unary(operation: .sin)
+        case "tg":
+            calcBrain.unary(operation: .tg)
+        case "ctg":
+            calcBrain.unary(operation: .ctg)
+        case "x^y":
+            calcBrain.unary(operation: .power)
         case "%":
             calcBrain.unary(operation: .percentage)
+            calcBrain.utility(operation: .Equal)
         case "+/-":
             calcBrain.unary(operation: .changeSign)
+            calcBrain.utility(operation: .Equal)
         case ".":
             calcBrain.utility(operation: .Dot)
         case "=":
             calcBrain.utility(operation: .Equal)
-           //outputController?.outputData(data: )
         case "C":
             calcBrain.utility(operation: .C)
-            outputController?.outputData(data: "")
+            outputController?.outputData(data: "0")
         case "√":
             calcBrain.unary(operation: .sqrt)
         default:
@@ -73,86 +77,10 @@ class ViewController: UIViewController  {
     }
         }
     }
-    //    var calcBrain = CalculatorBrain()
-    //
-    //    var operandStack = [Double]()
-    //    var operatorSymbol: String?
-    //    var userIsInTheMiddleOfTypingANumber = false
-    
-    //    var displayValue: Double {
-    //        get {
-    //            return Double(calcDisplay.text!)!
-    //        }
-    //        set {
-    //
-    //            if newValue == floor(newValue) {
-    //                calcDisplay.text = "\(Int(newValue))"
-    //            } else {
-    //                calcDisplay.text = "\(newValue)"
-    //            }
-    //
-    //            userIsInTheMiddleOfTypingANumber = false
-    //        }
-    //    }
-    
-    //@IBOutlet weak var calcDisplay: UILabel!
-    
-    //    @IBAction func numberTapped(_ sender: UIButton) {
-    //        let digit = sender.currentTitle!
-    //        if userIsInTheMiddleOfTypingANumber {
-    //            calcDisplay.text! += digit
-    //        } else {
-    //            calcDisplay.text = digit
-    //            userIsInTheMiddleOfTypingANumber = true
-    //        }
-    //    }
-    //    @IBAction func operateTapped(_ sender: UIButton) {
-    //        userIsInTheMiddleOfTypingANumber = false
-    //        operatorSymbol = sender.currentTitle!
-    //        operandStack.append(displayValue)
-    //
-    //    }
-    //    @IBAction func eqaulTapped() {
-    //        if operatorSymbol != nil {
-    //            userIsInTheMiddleOfTypingANumber = false
-    //            operandStack.append(displayValue)
-    //
-    //            switch operatorSymbol! {
-    //            case "+": performOperation() { $0 + $1 }
-    //            case "-": performOperation() { $1 - $0 }
-    //            case "×": performOperation() { $0 * $1 }
-    //            case "÷": performOperation() { $1 / $0 }
-    //            case "√": performOperation() { sqrt($0) }
-    //            case "cos": performOperation(){ cos($0) }
-    //            case "sin": performOperation(){ sin($0) }
-    //            case "+/-": performOperation(){ 0-$1 }
-    //
-    //            default: break
-    //            }
-    //        }
-    //
-    //    }
-    //    func performOperation( operation: (Double, Double) -> Double)  {
-    //        displayValue = operation(operandStack.removeLast(), operandStack.removeLast())
-    //        operandStack.append(displayValue)
-    //    }
-    //   private func performOperation( operation: (Double) -> Double){
-    //            displayValue = operation(operandStack.removeLast())
-    //            operandStack.append(displayValue)
-    //
-    //    }
-    //
-    //
-    //    @IBAction func clearTapped() {
-    //        operandStack.removeAll()
-    //        userIsInTheMiddleOfTypingANumber = false
-    //        operatorSymbol = nil
-    //        displayValue = 0
-    //
-    //    }
+   
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
     

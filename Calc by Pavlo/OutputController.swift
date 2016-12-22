@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  Calc by Pavlo
-//
-//  Created by pasik_01 on 12.12.16.
-//  Copyright © 2016 pasik. All rights reserved.
-//
 
 import UIKit
 protocol OutputData {
@@ -13,7 +6,7 @@ protocol OutputData {
 class OutputController : UIViewController {
     
     @IBOutlet var displayData: UILabel!
-    var zero = "0"
+    //var zero = "0"
     var userIsInTheMiddleOfTypingANumber = false
     
     var mainVC: ViewController? = nil
@@ -22,7 +15,7 @@ class OutputController : UIViewController {
         displayData?.text = data
     }
     func appendSymbol(symbol: String) {
-        if userIsInTheMiddleOfTypingANumber {
+        if displayData.text == "0" {
             displayData?.text = ""
             displayData?.text = symbol
             

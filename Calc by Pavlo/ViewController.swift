@@ -73,10 +73,10 @@ class ViewController: UIViewController  {
             if (value != nil) {
                 self.outputController?.outputData(data: "\(value!)")
                 
-    }
+            }
         }
     }
-   
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         

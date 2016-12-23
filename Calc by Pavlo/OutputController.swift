@@ -6,7 +6,6 @@ protocol OutputData {
 class OutputController : UIViewController {
     
     @IBOutlet var displayData: UILabel!
-    //var zero = "0"
     var userIsInTheMiddleOfTypingANumber = false
     
     var mainVC: ViewController? = nil
@@ -20,10 +19,10 @@ class OutputController : UIViewController {
             displayData?.text = symbol
             
         } else   {
-             displayData?.text = (displayData?.text!)! + symbol
+            displayData?.text = (displayData?.text!)! + symbol
             
         }
-       userIsInTheMiddleOfTypingANumber = true
+        userIsInTheMiddleOfTypingANumber = true
         
     }
     func  clearDispaly () {

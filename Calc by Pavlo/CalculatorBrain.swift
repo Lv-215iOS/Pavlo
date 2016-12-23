@@ -35,7 +35,7 @@ protocol CalculatorBrainInterface {
 
 class CalculatorBrain: NSObject, CalculatorBrainInterface {
     internal var result: ((Double?, Error?) -> ())?
-
+    
     var stack =  [Double]()
     private var inputData = ""
     private var operationValue = ""
@@ -47,8 +47,8 @@ class CalculatorBrain: NSObject, CalculatorBrainInterface {
     func binary(operation: BinaryOperation) {
         operationValue = operation.rawValue
         if inputData != ""{
-        stack.append(Double(inputData)!)
-        inputData = ""
+            stack.append(Double(inputData)!)
+            inputData = ""
         }
     }
     func unary(operation: UnaryOperation) {
@@ -61,8 +61,8 @@ class CalculatorBrain: NSObject, CalculatorBrainInterface {
     func utility(operation: UtilityOperation) {
         if operation == .Equal {
             if inputData == "" {
-            let res = doMath()
-            result?(res, nil)
+                let res = doMath()
+                result?(res, nil)
             } else {
                 stack.append(Double(inputData)!)
                 inputData = ""
@@ -79,32 +79,32 @@ class CalculatorBrain: NSObject, CalculatorBrainInterface {
     
     func doMath ()->Double {
         
-            switch operationValue {
-            case "+":
-               stack.append(stack.removeLast() + stack.removeLast())
-            case "-":
-                stack.append(stack.remove(at: 0) - stack.removeLast())
-            case "×":
-                stack.append(stack.removeLast() * stack.removeLast())
-            case "÷":
-                stack.append(stack.remove(at: 0) - stack.removeLast())
-            case "√":
-                stack.append(sqrt(stack.removeLast()))
-            case "sin":
-                stack.append(sin(stack.removeLast()))
-            case "cos":
-                stack.append(cos(stack.removeLast()))
-            case "+/-":
-                stack.append(0 - stack.removeLast())
-            case "%":
-                stack.append(stack.removeLast()/100)
-            case "tg":
-                stack.append(tan(stack.removeLast()))
-            case "ctg":
-                stack.append(tanh(stack.removeLast()))
-            case "x^y":
-                stack.append(pow(stack.removeLast(), stack.removeLast()))
-            default:stack.append(stack[0])
+        switch operationValue {
+        case "+":
+            stack.append(stack.removeLast() + stack.removeLast())
+        case "-":
+            stack.append(stack.remove(at: 0) - stack.removeLast())
+        case "×":
+            stack.append(stack.removeLast() * stack.removeLast())
+        case "÷":
+            stack.append(stack.remove(at: 0) - stack.removeLast())
+        case "√":
+            stack.append(sqrt(stack.removeLast()))
+        case "sin":
+            stack.append(sin(stack.removeLast()))
+        case "cos":
+            stack.append(cos(stack.removeLast()))
+        case "+/-":
+            stack.append(0 - stack.removeLast())
+        case "%":
+            stack.append(stack.removeLast()/100)
+        case "tg":
+            stack.append(tan(stack.removeLast()))
+        case "ctg":
+            stack.append(tanh(stack.removeLast()))
+        case "x^y":
+            stack.append(pow(stack.removeLast(), stack.removeLast()))
+        default:stack.append(stack[0])
             
         }
         return stack[stack.count-1]

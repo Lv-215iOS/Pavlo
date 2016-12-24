@@ -31,7 +31,7 @@ class ViewController: UIViewController  {
         case "×":
             calcBrain.binary(operation: .Mul)
             outputController?.appendSymbol(symbol: operation)
-        case "/":
+        case "÷":
             calcBrain.binary(operation: .Div)
             outputController?.appendSymbol(symbol: operation)
         case "cos":
@@ -52,13 +52,16 @@ class ViewController: UIViewController  {
             calcBrain.utility(operation: .Equal)
         case ".":
             calcBrain.utility(operation: .Dot)
+            outputController?.appendSymbol(symbol: operation)
         case "=":
             calcBrain.utility(operation: .Equal)
+            
         case "C":
             calcBrain.utility(operation: .C)
             outputController?.outputData(data: "0")
         case "√":
             calcBrain.unary(operation: .sqrt)
+            calcBrain.utility(operation: .Equal)
         default:
             outputController?.appendSymbol(symbol: operation)
             calcBrain.digit(value: Double(operation)!)
@@ -71,8 +74,11 @@ class ViewController: UIViewController  {
         super.viewDidLoad()
         calcBrain.result = { (value, error)->() in
             if (value != nil) {
-                self.outputController?.outputData(data: "\(value!)")
-                
+                if value == Double(Int(value!)) {
+                    self.outputController?.outputData(data: "\(Int(value!))")
+                } else {
+                    self.outputController?.outputData(data: "\(value!)")
+                }
             }
         }
     }

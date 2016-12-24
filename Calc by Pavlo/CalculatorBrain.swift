@@ -40,9 +40,11 @@ class CalculatorBrain: NSObject, CalculatorBrainInterface {
     private var inputData = ""
     private var operationValue = ""
     private var outputData = [String]()
+    private var lastInputData: Double?  = nil
     
     func digit(value: Double) {
         inputData += String(Int(value))
+        lastInputData = Double(inputData)
     }
     func binary(operation: BinaryOperation) {
         operationValue = operation.rawValue
@@ -60,15 +62,24 @@ class CalculatorBrain: NSObject, CalculatorBrainInterface {
     
     func utility(operation: UtilityOperation) {
         if operation == .Equal {
+            if stack.count == 0 {
+                return;
+            }
             if inputData == "" {
                 let res = doMath()
                 result?(res, nil)
             } else {
-                stack.append(Double(inputData)!)
-                inputData = ""
+                if stack.count == 1 {
+                    stack.append(lastInputData!)
+                    
+                } else {
+                    stack.append(Double(inputData)!)
+                    inputData = ""
+                }
                 let res = doMath()
                 result?(res, nil)
             }
+            
         } else if operation == .C {
             inputData = ""
             stack.removeAll()
@@ -87,7 +98,7 @@ class CalculatorBrain: NSObject, CalculatorBrainInterface {
         case "×":
             stack.append(stack.removeLast() * stack.removeLast())
         case "÷":
-            stack.append(stack.remove(at: 0) - stack.removeLast())
+            stack.append(stack.remove(at: 0) / stack.removeLast())
         case "√":
             stack.append(sqrt(stack.removeLast()))
         case "sin":
@@ -103,8 +114,8 @@ class CalculatorBrain: NSObject, CalculatorBrainInterface {
         case "ctg":
             stack.append(tanh(stack.removeLast()))
         case "x^y":
-            stack.append(pow(stack.removeLast(), stack.removeLast()))
-        default:stack.append(stack[0])
+            stack.append(pow(stack.remove(at: 0), stack.removeLast()))
+        default: stack.append(stack[0])
             
         }
         return stack[stack.count-1]

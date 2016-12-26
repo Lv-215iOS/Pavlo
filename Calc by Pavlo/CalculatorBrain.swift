@@ -33,7 +33,7 @@ protocol CalculatorBrainInterface {
     var result: ((Double?, Error?)->())? {get set}
 }
 
-class CalculatorBrain: NSObject, CalculatorBrainInterface {
+class CalculatorBrain: CalculatorBrainInterface {
     internal var result: ((Double?, Error?) -> ())?
     
     var stack =  [Double]()

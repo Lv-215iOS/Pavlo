@@ -48,7 +48,7 @@ class CalculatorBrain: CalculatorBrainInterface {
     }
     func binary(operation: BinaryOperation) {
         operationValue = operation.rawValue
-        if inputData != ""{
+        if inputData != "" {
             stack.append(Double(inputData)!)
             inputData = ""
         }
@@ -63,21 +63,28 @@ class CalculatorBrain: CalculatorBrainInterface {
     func utility(operation: UtilityOperation) {
         if operation == .Equal {
             if stack.count == 0 {
+                print ("sadmhabsd")
                 return;
             }
             if inputData == "" {
                 let res = doMath()
                 result?(res, nil)
+                if stack.count == 2 {
+                    stack.remove(at: 0)
+                }
+               
             } else {
                 if stack.count == 1 {
                     stack.append(lastInputData!)
-                    inputData = ""
+                   
                 } else {
                     stack.append(Double(inputData)!)
-                    inputData = ""
+                    stack.remove(at: 1)
+                   // inputData = ""
                 }
                 let res = doMath()
                 result?(res, nil)
+                //stack.remove(at: 1)
             }
             
         } else if operation == .C {
@@ -96,23 +103,23 @@ class CalculatorBrain: CalculatorBrainInterface {
         case "-":
             stack.append(stack.remove(at: 0) - stack.removeLast())
         case "×":
-            stack.append(stack.removeLast() * stack.removeLast())
+            stack.append(stack.remove(at: 0) * stack.removeLast())
         case "÷":
             stack.append(stack.remove(at: 0) / stack.removeLast())
         case "√":
-            stack.append(sqrt(stack.removeLast()))
+            stack.append(sqrt(stack.remove(at: 0)))
         case "sin":
-            stack.append(sin(stack.removeLast()))
+            stack.append(sin(stack.remove(at: 0)))
         case "cos":
-            stack.append(cos(stack.removeLast()))
+            stack.append(cos(stack.remove(at: 0)))
         case "+/-":
-            stack.append((-1) * (stack.removeLast()))
+            stack.append((-1) * (stack.remove(at: 0)))
         case "%":
-            stack.append(stack.removeLast()/100)
+            stack.append(stack.remove(at: 0)/100)
         case "tg":
-            stack.append(tan(stack.removeLast()))
+            stack.append(tan(stack.remove(at: 0)))
         case "ctg":
-            stack.append(tanh(stack.removeLast()))
+            stack.append(tanh(stack.remove(at: 0)))
         case "x^y":
             stack.append(pow(stack.remove(at: 0), stack.removeLast()))
         default: stack.append(stack[0])

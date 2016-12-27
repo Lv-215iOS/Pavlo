@@ -55,7 +55,6 @@ class ViewController: UIViewController  {
             outputController?.appendSymbol(symbol: operation)
         case "=":
             calcBrain.utility(operation: .Equal)
-            
         case "C":
             calcBrain.utility(operation: .C)
             outputController?.outputData(data: "0")
@@ -74,7 +73,10 @@ class ViewController: UIViewController  {
         super.viewDidLoad()
         calcBrain.result = { (value, error)->() in
             if (value != nil) {
-                if value == Double(Int(value!)) {
+                if (value!.isNaN) || (value!.isInfinite){
+                    self.outputController?.outputData(data: "Помилка")
+                    
+                } else if value == Double(Int(value!)) {
                     self.outputController?.outputData(data: "\(Int(value!))")
                 } else {
                     self.outputController?.outputData(data: "\(value!)")

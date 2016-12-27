@@ -71,7 +71,7 @@ class CalculatorBrain: CalculatorBrainInterface {
             } else {
                 if stack.count == 1 {
                     stack.append(lastInputData!)
-                    
+                    inputData = ""
                 } else {
                     stack.append(Double(inputData)!)
                     inputData = ""
@@ -106,7 +106,7 @@ class CalculatorBrain: CalculatorBrainInterface {
         case "cos":
             stack.append(cos(stack.removeLast()))
         case "+/-":
-            stack.append(0 - stack.removeLast())
+            stack.append((-1) * (stack.removeLast()))
         case "%":
             stack.append(stack.removeLast()/100)
         case "tg":

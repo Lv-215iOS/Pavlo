@@ -1,4 +1,3 @@
-
 import UIKit
 
 class ViewController: UIViewController  {
@@ -36,14 +35,19 @@ class ViewController: UIViewController  {
             outputController?.appendSymbol(symbol: operation)
         case "cos":
             calcBrain.unary(operation: .cos)
+            calcBrain.utility(operation: .Equal)
         case "sin":
             calcBrain.unary(operation: .sin)
+            calcBrain.utility(operation: .Equal)
         case "tg":
             calcBrain.unary(operation: .tg)
+            calcBrain.utility(operation: .Equal)
         case "ctg":
             calcBrain.unary(operation: .ctg)
-        case "x^y":
+            calcBrain.utility(operation: .Equal)
+        case "^":
             calcBrain.unary(operation: .power)
+            outputController?.appendSymbol(symbol: operation)
         case "%":
             calcBrain.unary(operation: .percentage)
             calcBrain.utility(operation: .Equal)
@@ -61,6 +65,9 @@ class ViewController: UIViewController  {
         case "√":
             calcBrain.unary(operation: .sqrt)
             calcBrain.utility(operation: .Equal)
+        case "error":
+            calcBrain.utility(operation: .C)
+            outputController?.appendSymbol(symbol: "error")
         default:
             outputController?.appendSymbol(symbol: operation)
             calcBrain.digit(value: Double(operation)!)
@@ -73,18 +80,20 @@ class ViewController: UIViewController  {
         super.viewDidLoad()
         calcBrain.result = { (value, error)->() in
             if (value != nil) {
-                if (value!.isNaN) || (value!.isInfinite){
+                if (value!.isNaN) || (value!.isInfinite)
+                    
+                {
                     self.outputController?.outputData(data: "Помилка")
                     
-                } else if value == Double(Int(value!)) {
-                    self.outputController?.outputData(data: "\(Int(value!))")
-                } else {
-                    self.outputController?.outputData(data: "\(value!)")
                 }
+                self.outputController?.outputData(data: NSString (format: "%g", value!) as String)
             }
         }
+        
     }
-    
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         

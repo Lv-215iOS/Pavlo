@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8B027E7A1DFE9D070097AD78 /* InputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B027E791DFE9D070097AD78 /* InputController.swift */; };
 		8B027E7C1DFE9EAC0097AD78 /* OutputController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B027E7B1DFE9EAC0097AD78 /* OutputController.swift */; };
+		8B4566AB1E25AE7300BCD889 /* CalcProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4566AA1E25AE7300BCD889 /* CalcProtocols.swift */; };
 		8BED0BCA1DFDF6E100545CCF /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BED0BC91DFDF6E100545CCF /* CalculatorBrain.swift */; };
 		8BEFC7791DF806E1007EA978 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEFC7781DF806E1007EA978 /* AppDelegate.swift */; };
 		8BEFC77B1DF806E1007EA978 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEFC77A1DF806E1007EA978 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		8B027E791DFE9D070097AD78 /* InputController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputController.swift; sourceTree = "<group>"; };
 		8B027E7B1DFE9EAC0097AD78 /* OutputController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputController.swift; sourceTree = "<group>"; };
+		8B4566AA1E25AE7300BCD889 /* CalcProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalcProtocols.swift; sourceTree = "<group>"; };
 		8BED0BC91DFDF6E100545CCF /* CalculatorBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; usesTabs = 0; };
 		8BEFC7751DF806E1007EA978 /* Calc by Pavlo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Calc by Pavlo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BEFC7781DF806E1007EA978 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -41,6 +43,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B13C90F1E2461420020E5B9 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		8BEFC76C1DF806E1007EA978 = {
 			isa = PBXGroup;
 			children = (
@@ -65,10 +74,12 @@
 				8BEFC77A1DF806E1007EA978 /* ViewController.swift */,
 				8B027E791DFE9D070097AD78 /* InputController.swift */,
 				8B027E7B1DFE9EAC0097AD78 /* OutputController.swift */,
+				8B4566AA1E25AE7300BCD889 /* CalcProtocols.swift */,
 				8BEFC77C1DF806E1007EA978 /* Main.storyboard */,
 				8BEFC77F1DF806E1007EA978 /* Assets.xcassets */,
 				8BEFC7811DF806E1007EA978 /* LaunchScreen.storyboard */,
 				8BEFC7841DF806E1007EA978 /* Info.plist */,
+				8B13C90F1E2461420020E5B9 /* SupportingFiles */,
 			);
 			path = "Calc by Pavlo";
 			sourceTree = "<group>";
@@ -148,6 +159,7 @@
 			files = (
 				8B027E7C1DFE9EAC0097AD78 /* OutputController.swift in Sources */,
 				8B027E7A1DFE9D070097AD78 /* InputController.swift in Sources */,
+				8B4566AB1E25AE7300BCD889 /* CalcProtocols.swift in Sources */,
 				8BED0BCA1DFDF6E100545CCF /* CalculatorBrain.swift in Sources */,
 				8BEFC77B1DF806E1007EA978 /* ViewController.swift in Sources */,
 				8BEFC7791DF806E1007EA978 /* AppDelegate.swift in Sources */,

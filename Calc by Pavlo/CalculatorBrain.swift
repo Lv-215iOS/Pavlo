@@ -1,43 +1,9 @@
-
 import Foundation
-
-enum BinaryOperation: String  {
-    case Plus = "+"
-    case Minus = "-"
-    case Mul = "×"
-    case Div = "÷"
-}
-
-enum UtilityOperation: String {
-    case Equal = "="
-    case C = "C"
-    case Dot = "."
-}
-
-enum UnaryOperation: String {
-    case sqrt = "√"
-    case sin = "sin"
-    case cos = "cos"
-    case tg  = "tg"
-    case ctg = "ctg"
-    case changeSign = "+/-"
-    case percentage = "%"
-    case power = "x^y"
-}
-
-protocol CalculatorBrainInterface {
-    func digit(value: Double)
-    func binary(operation: BinaryOperation)
-    func unary(operation: UnaryOperation)
-    func utility(operation: UtilityOperation)
-    var result: ((Double?, Error?)->())? {get set}
-}
 
 class CalculatorBrain: CalculatorBrainInterface {
     internal var result: ((Double?, Error?) -> ())?
-    
     var stack =  [Double]()
-    private var inputData = ""
+    private var inputData = "0"
     private var operationValue = ""
     private var outputData = [String]()
     private var lastInputData: Double?  = nil
@@ -52,6 +18,7 @@ class CalculatorBrain: CalculatorBrainInterface {
             stack.append(Double(inputData)!)
             inputData = ""
         }
+        
     }
     func unary(operation: UnaryOperation) {
         operationValue = operation.rawValue
@@ -63,7 +30,6 @@ class CalculatorBrain: CalculatorBrainInterface {
     func utility(operation: UtilityOperation) {
         if operation == .Equal {
             if stack.count == 0 {
-                print ("sadmhabsd")
                 return;
             }
             if inputData == "" {
@@ -72,28 +38,27 @@ class CalculatorBrain: CalculatorBrainInterface {
                 if stack.count == 2 {
                     stack.remove(at: 0)
                 }
-               
+                
             } else {
                 if stack.count == 1 {
                     stack.append(lastInputData!)
-                   
+                    
                 } else {
                     stack.append(Double(inputData)!)
                     stack.remove(at: 1)
-                   // inputData = ""
                 }
                 let res = doMath()
                 result?(res, nil)
-                //stack.remove(at: 1)
             }
             
         } else if operation == .C {
-            inputData = ""
+            inputData = "0"
             stack.removeAll()
         }  else {
             inputData += operation.rawValue
         }
     }
+    
     
     func doMath ()->Double {
         
@@ -120,7 +85,7 @@ class CalculatorBrain: CalculatorBrainInterface {
             stack.append(tan(stack.remove(at: 0)))
         case "ctg":
             stack.append(tanh(stack.remove(at: 0)))
-        case "x^y":
+        case "^":
             stack.append(pow(stack.remove(at: 0), stack.removeLast()))
         default: stack.append(stack[0])
             
